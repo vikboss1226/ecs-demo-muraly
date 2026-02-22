@@ -1,0 +1,22 @@
+# Node dependencies (all node_modules in any folder)
+**/node_modules/
+
+# React build folder
+frontend/build/
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+*.log
+logs/
+
+# Docker
+docker-compose.override.yml
+
+env
+
+# OS files
+.DS_Store
+Thumbs.db

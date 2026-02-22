@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  backend:
+    image: muraly26/nodeapp:latest
+    container_name: backendapp
+    environment:
+      PORT: ${PORT}
+      MONGO_URI: ${MONGO_URI}
+      DB_NAME: ${DB_NAME}
+      COLLECTION_NAME: ${COLLECTION_NAME}
+    ports:
+      - "${PORT}:${PORT}"
+    networks:
+      - mynetwork
+    volumes:
+      - /app/uploads  # <--- backend writes here
+
+  frontend:
+    image: muraly26/react-app:latest
+    container_name: frontendapp
+    environment:
+      REACT_APP_API_URL: ${REACT_APP_API_URL}
+    ports:
+      - "3000:80"
+    networks:
+      - mynetwork
+    depends_on:
+      - backend
+
+networks:
+  mynetwork:
+    driver: bridge
