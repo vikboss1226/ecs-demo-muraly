@@ -1,8 +1,6 @@
 # Node dependencies (all node_modules in any folder)
 **/node_modules/
-
-# React build folder
-frontend/build/
+ 
 
 # Environment variables
 .env
